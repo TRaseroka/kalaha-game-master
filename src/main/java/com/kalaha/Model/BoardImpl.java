@@ -186,7 +186,7 @@ while (!isGameOver()) {
     }
 
     public static final class BoardImplBuilder {
-
+        private List<Integer> pitList;
         public BoardImplBuilder pitList(final int pitsPerPlayer, final int stonesPerPit) {
             int totalAmountOfPits = 2 * pitsPerPlayer + 2;
             List<Integer> list = IntStream.
@@ -196,7 +196,7 @@ while (!isGameOver()) {
                     .collect(Collectors.toList());
             list.set(list.size() / 2 - 1, 0);
             list.set(list.size() - 1, 0);
-
+            this.pitList = list;
             return this;
         }
     }
